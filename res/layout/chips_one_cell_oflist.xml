@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/playerCardNO"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="15"
+        android:background="@drawable/shape_white_border_without_top"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        android:text="@string/_123456789"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/playerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="35"
+        android:background="@drawable/shape_white_border_without_left_top"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        android:text="@string/_xxx"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/playerMobileNO"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:background="@drawable/shape_white_border_without_left_top"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        android:text="@string/_13945652808"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/playerChip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:background="@drawable/shape_white_border_without_left_top"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        android:text="@string/_500000"
+        android:textSize="18sp" />
+
+</LinearLayout>

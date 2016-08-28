@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tv_title_match_name">EVENT</string>
+    <string name="tv_title_match_date">DATE</string>
+    <string name="tv_title_match_time">TIME</string>
+    <string name="tv_title_match_blindLevel">BLINDS LEVEL</string>
+    <string name="tv_title_match_total_players">ENTRANTS</string>
+    <string name="tv_title_match_start_chips">START CHIPS</string>
+    <string name="tv_title_match_states">STATE</string>
+    <string name="tv_check_entrance_compinfo">Welcome to 2015 HI (Sanya)China!</string>
+    <string name="tv_check_entrance_welcomeinfo">Dear:</string>
+    <string name="tv_compinfo_time">TIME</string>
+    <string name="tv_compinfo_level">LEVEL：</string>
+    <string name="tv_compinfo_force_point">ANTE：</string>
+    <string name="tv_compinfo_small_blind_score">SMALL BLIND：</string>
+    <string name="tv_compinfo_big_blind_score">BIG BLIND：</string>
+    <string name="tv_compinfo_next_level">NEXT LEVEL</string>
+    <string name="tv_compinfo_players">PLAYER LEFT</string>
+    <string name="tv_compinfo_average_score">AVERAGE CHIPS</string>
+    <string name="tv_compinfo_total_players">ENTRANTS</string>
+    <string name="tv_compinfo_total_score">TOTAL CHIPS</string>
+    <string name="tv_compinfo_blind_score">BLINDS：</string>
+    <string name="tv_push_info">EMPTY CONTENT</string>
+    <string name="tv_seat_title_card_no">CARDNO</string>
+    <string name="tv_seat_title_player_name">NAME</string>
+    <string name="tv_seat_title_table_seat_no">T/S</string>
+    <string name="tv_seat_title_chip_amount">CHIPS</string>
+    <string name="tv_seat_title_series">SERIES</string>
+    <string name="tv_compinfo_next_level_show">LEVEL：</string>
+    <string name="tv_compinfo_prize_pos_welcome">Welcome to</string>
+    <string name="tv_compinfo_comp_event_show">Event：</string>
+    <string name="tv_compinfo_comp_state_pause">PAUSING</string>
+    <string name="tv_compinfo_comp_state_rest">RESTING</string>
+    <string name="tv_compinfo_comp_state_close">CLOSE</string>
+    <string name="tv_compinfo_comp_state_signnotstart">SIGNING,STOP</string>
+    <string name="tv_compinfo_comp_state_signstart">SIGNING,PLAYING</string>
+    <string name="tv_compinfo_comp_state_endsignnotstart">END SIGN,STOP</string>
+    <string name="tv_compinfo_comp_state_endsignstart">END SIGN,PLAYING</string>
+
+</resources>

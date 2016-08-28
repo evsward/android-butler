@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E2E2E2"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/fragment_comp_player_playerCount"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:id="@+id/countInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_white_border"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_comp_player_compplayerCount"
+                android:textSize="21sp" />
+
+            <TextView
+                android:id="@+id/totalPeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/empty_hint"
+                android:textSize="21sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_comp_player_chipCount"
+                android:textSize="21sp" />
+
+            <TextView
+                android:id="@+id/totalChips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/empty_hint"
+                android:textSize="21sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/infoListTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:background="@drawable/shape_white_border"
+            android:gravity="center_horizontal"
+            android:text="@string/fragment_comp_player_serious"
+            android:textSize="21sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:background="@drawable/shape_white_border_without_left"
+            android:gravity="center_horizontal"
+            android:text="@string/fragment_comp_chips_cardNo"
+            android:textSize="21sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:background="@drawable/shape_white_border_without_left"
+            android:gravity="center_horizontal"
+            android:text="@string/fragment_comp_chips_name"
+            android:textSize="21sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:background="@drawable/shape_white_border_without_left"
+            android:gravity="center_horizontal"
+            android:text="@string/fragment_comp_player_table_seat"
+            android:textSize="21sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:background="@drawable/shape_white_border_without_left"
+            android:gravity="center_horizontal"
+            android:text="@string/fragment_comp_chips_chipsCount"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/playerListInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

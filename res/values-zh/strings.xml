@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tv_title_match_name">比赛名称</string>
+    <string name="tv_title_match_date">比赛日期</string>
+    <string name="tv_title_match_time">时间</string>
+    <string name="tv_title_match_blindLevel">盲级</string>
+    <string name="tv_title_match_total_players">总人数</string>
+    <string name="tv_title_match_start_chips">初始筹码</string>
+    <string name="tv_title_match_states">比赛状态</string>
+    <string name="tv_check_entrance_compinfo">参加本届中国（三亚）扑克游戏锦标赛!</string>
+    <string name="tv_check_entrance_welcomeinfo">欢迎您：</string>
+    <string name="tv_compinfo_time">时间</string>
+    <string name="tv_compinfo_level">级别：</string>
+    <string name="tv_compinfo_force_point">强制分：</string>
+    <string name="tv_compinfo_small_blind_score">小盲分：</string>
+    <string name="tv_compinfo_big_blind_score">大盲分：</string>
+    <string name="tv_compinfo_next_level">下一级别</string>
+    <string name="tv_compinfo_players">比赛中选手</string>
+    <string name="tv_compinfo_average_score">比赛中平均分</string>
+    <string name="tv_compinfo_total_players">总计比赛选手</string>
+    <string name="tv_compinfo_total_score">总计比赛分</string>
+    <string name="tv_compinfo_blind_score">盲分：</string>
+    <string name="tv_push_info">暂不推送内容</string>
+    <string name="tv_seat_title_card_no">卡号</string>
+    <string name="tv_seat_title_player_name">姓名</string>
+    <string name="tv_seat_title_table_seat_no">桌号/座位号</string>
+    <string name="tv_seat_title_chip_amount">筹码量</string>
+    <string name="tv_seat_title_series">序号</string>
+    <string name="tv_compinfo_next_level_show">级别：</string>
+    <string name="tv_compinfo_prize_pos_welcome">欢迎来到</string>
+    <string name="tv_compinfo_comp_event_show">赛事：</string>
+    <string name="tv_compinfo_comp_state_pause">赛事暂停中</string>
+    <string name="tv_compinfo_comp_state_rest">赛事休息中</string>
+    <string name="tv_compinfo_comp_state_close">未开放</string>
+    <string name="tv_compinfo_comp_state_signnotstart">正在报名-比赛未开始</string>
+    <string name="tv_compinfo_comp_state_signstart">正在报名-比赛进行中</string>
+    <string name="tv_compinfo_comp_state_endsignnotstart">停止报名-比赛未开始</string>
+    <string name="tv_compinfo_comp_state_endsignstart">停止报名-比赛进行中</string>
+
+</resources>

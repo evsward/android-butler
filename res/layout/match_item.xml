@@ -1,0 +1,151 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_corner_white_no_border"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tvMatchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/empty_hint"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvMatchCanSaiFei_Null"
+            android:layout_alignTop="@+id/tvMatchName"
+            android:hint="@string/empty_hint"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchIsOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvMatchGuanLiFei_Null"
+            android:layout_alignTop="@+id/tvMatchName"
+            android:hint="@string/empty_hint"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchChongJin_Null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvMatchName"
+            android:layout_marginTop="10sp"
+            android:text="@string/match_re_in"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchChongJin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvMatchChongJin_Null"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tvMatchChongJin_Null"
+            android:hint="@string/empty_hint"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchCanSaiFei_Null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvMatchChongJin_Null"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/tvMatchChongJin"
+            android:text="@string/addmatch_match_entry_fee"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchCanSaiFei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvMatchChongJin_Null"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tvMatchCanSaiFei_Null"
+            android:hint="@string/empty_hint"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchGuanLiFei_Null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvMatchChuShiChouMa_Null"
+            android:layout_marginLeft="40sp"
+            android:layout_toRightOf="@+id/tvMatchCanSaiFei"
+            android:text="@string/addmatch_match_manage_fee"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchGuanLiFei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvMatchChuShiChouMa_Null"
+            android:layout_marginLeft="10sp"
+            android:layout_toRightOf="@+id/tvMatchGuanLiFei_Null"
+            android:hint="@string/empty_hint"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchChuShiChouMa_Null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvMatchChongJin_Null"
+            android:layout_marginTop="10sp"
+            android:text="@string/addMatch_start_chips"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchChuShiChouMa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvMatchChongJin"
+            android:layout_alignTop="@+id/tvMatchChuShiChouMa_Null"
+            android:hint="@string/empty_hint"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchCurMangZhulvl_Null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvMatchCanSaiFei_Null"
+            android:layout_alignTop="@+id/tvMatchChuShiChouMa_Null"
+            android:text="@string/addmatch_cur_blind_level"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvMatchCurMangZhulvl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvMatchChuShiChouMa_Null"
+            android:layout_marginLeft="10sp"
+            android:layout_toRightOf="@+id/tvMatchCurMangZhulvl_Null"
+            android:hint="@string/empty_hint"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

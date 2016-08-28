@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E2E2E2" >
+
+    <TextView
+        android:id="@+id/firstUI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/fragment_comp_process_blind_info"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RelativeLayout
+        android:id="@+id/secondUI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstUI"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_corner_white_no_border"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/firstOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/fragment_comp_process_cur_blind"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/currentBlindLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/firstOne"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/firstOne"
+            android:hint="@string/empty_hint"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/firstTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/firstOne"
+            android:layout_marginLeft="220dp"
+            android:layout_toRightOf="@id/firstOne"
+            android:text="@string/fragment_comp_process_countdown"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/blindLevelCountDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/firstOne"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@id/firstTwo"
+            android:hint="@string/empty_hint"
+            android:textColor="#F70E0E"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/SecondOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/firstOne"
+            android:layout_below="@id/firstOne"
+            android:layout_marginBottom="20dp"
+            android:text="@string/fragment_comp_process_bigblind_smallblind"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/smallBigBlindLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/currentBlindLevel"
+            android:layout_alignTop="@id/SecondOne"
+            android:hint="@string/empty_hint"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/SecondTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/firstTwo"
+            android:layout_alignTop="@id/SecondOne"
+            android:text="@string/fragment_comp_process_former_blind"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/frontStake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/blindLevelCountDown"
+            android:layout_alignTop="@id/SecondOne"
+            android:hint="@string/empty_hint"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/ThirdOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/firstOne"
+            android:layout_below="@id/SecondOne"
+            android:layout_marginBottom="20dp"
+            android:text="@string/fragment_comp_process_player_count"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/totalPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/currentBlindLevel"
+            android:layout_alignTop="@id/ThirdOne"
+            android:hint="@string/empty_hint"
+            android:textSize="21sp" />
+
+        <Button
+            android:id="@+id/changePeopleNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ThirdOne"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@id/totalPlayers"
+            android:background="@drawable/shape_blue_gradual_login"
+            android:minHeight="0dp"
+            android:minWidth="50dp"
+            android:padding="0dp"
+            android:text="@string/fragment_comp_process_modify"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/ThirdTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/firstTwo"
+            android:layout_alignTop="@id/ThirdOne"
+            android:text="@string/fragment_comp_process_average_chip"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/averageChips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/blindLevelCountDown"
+            android:layout_alignTop="@id/ThirdOne"
+            android:hint="@string/empty_hint"
+            android:textSize="21sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/thirdUI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/firstUI"
+        android:layout_below="@id/secondUI"
+        android:layout_marginTop="40dp"
+        android:text="@string/fragment_comp_process_modify_blind"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/upOneBlindLevel"
+        style="@style/customButton"
+        android:layout_alignTop="@id/thirdUI"
+        android:layout_marginLeft="60dp"
+        android:layout_toRightOf="@id/thirdUI"
+        android:text="@string/fragment_comp_process_upOneBlindLevel" />
+
+    <Button
+        android:id="@+id/backOneBlindLevel"
+        style="@style/customButton"
+        android:layout_alignTop="@id/upOneBlindLevel"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@id/upOneBlindLevel"
+        android:text="@string/fragment_comp_process_backOneBlindLevel" />
+
+    <LinearLayout
+        android:id="@+id/controlMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/upOneBlindLevel"
+        android:layout_below="@id/upOneBlindLevel" >
+
+        <Button
+            android:id="@+id/pauseMatch"
+            style="@style/customButton"
+            android:layout_marginTop="40dp"
+            android:text="@string/fragment_comp_process_pauseComp" />
+
+        <Button
+            android:id="@+id/startMatch"
+            style="@style/customButton"
+            android:layout_marginTop="40dp"
+            android:text="@string/fragment_comp_process_startComp"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/fourthUI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/firstUI"
+        android:layout_below="@id/controlMatch"
+        android:layout_marginTop="40dp"
+        android:text="@string/fragment_comp_process_modifyBlindTime"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <SeekBar
+        android:id="@+id/changeBlindTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/firstUI"
+        android:layout_below="@+id/fourthUI"
+        android:layout_marginTop="10dp"
+        android:progressDrawable="@drawable/red_scrubber_progress"
+        android:thumb="@drawable/thumb_image" />
+
+</RelativeLayout>

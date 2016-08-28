@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_tvone_deep_blue_gradual"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:id="@+id/matchPlayersListTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:background="@drawable/shape_white_border_gradual_blue"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/tv_title_match_name"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="@drawable/shape_white_border_without_left_gradual_blue"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/tv_title_match_date"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:background="@drawable/shape_white_border_without_left_gradual_blue"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/tv_title_match_time"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="@drawable/shape_white_border_without_left_gradual_blue"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/tv_title_match_blindLevel"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="@drawable/shape_white_border_without_left_gradual_blue"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/tv_title_match_total_players"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:background="@drawable/shape_white_border_without_left_gradual_blue"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/tv_title_match_start_chips"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:background="@drawable/shape_white_border_without_left_gradual_blue"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/tv_title_match_states"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/matchPlayersListInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_tvone_deep_blue_gradual" >
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,335 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp" >
+
+    <LinearLayout
+        android:id="@+id/llchair1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair1"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="1"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/llchair1"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair2"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_left"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_left_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="2"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/llchair2"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair3"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_left"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_left_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="3"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/llchair3"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair4"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_left"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_left_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="4"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/llchair4"
+        android:layout_below="@id/llchair4"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair5"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_top"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="5"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/llchair5"
+        android:layout_below="@id/llchair5"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair6"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_left_top"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_left_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="6"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/llchair6"
+        android:layout_toLeftOf="@id/llchair6"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair7"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_left"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_left_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="7"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/llchair7"
+        android:layout_toLeftOf="@id/llchair7"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair8"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_left"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_left_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="8"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/llchair8"
+        android:layout_toLeftOf="@id/llchair8"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair9"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_top"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="9"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llchair10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/llchair1"
+        android:layout_below="@id/llchair1"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imgbtnchair10"
+            style="@style/table_avatar_fixed"
+            android:background="@drawable/shape_white_border_without_top"
+            android:padding="1dp"
+            android:src="@drawable/small_chair" />
+
+        <TextView
+            android:id="@+id/tvchair10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/shape_white_border_without_top"
+            android:gravity="top|center_horizontal"
+            android:padding="0dp"
+            android:text="10"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/table_control_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llchair8"
+        android:layout_marginBottom="20dp"
+        android:layout_toLeftOf="@id/llchair5"
+        android:layout_toRightOf="@id/llchair10"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btntableBaoZhuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shape_blue_gradual_login"
+            android:minHeight="0dp"
+            android:minWidth="50dp"
+            android:padding="5dp"
+            android:text="@string/bursttable"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btntableShiFang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shape_blue_gradual_login"
+            android:minHeight="0dp"
+            android:minWidth="50dp"
+            android:padding="5dp"
+            android:text="@string/freetable"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lock" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lltableInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llchair8"
+        android:layout_toLeftOf="@id/llchair6"
+        android:layout_toRightOf="@id/llchair9"
+        android:gravity="center" >
+
+        <CheckBox
+            android:id="@+id/cbtableSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/_table_no"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+</RelativeLayout>

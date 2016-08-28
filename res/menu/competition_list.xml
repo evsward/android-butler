@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/matchManage"
+        android:showAsAction="ifRoom"
+        android:title="@string/menuCompManage"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:visible="false"/>
+    <item
+        android:id="@+id/newMatch"
+        android:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/menuCompManageNew"/>
+    <item
+        android:id="@+id/deleteMatch"
+        android:showAsAction="never"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/menuCompManageDel"
+        android:visible="false"/>
+    <item
+        android:id="@+id/finishMatch"
+        android:showAsAction="never"
+        android:title="@string/menuCompManageFinist"
+        android:icon="@drawable/ic_menu_stop"
+        android:visible="false"/>
+
+</menu>

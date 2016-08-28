@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:padding="10dp"
+    android:background="@drawable/shape_corner_white_no_border"
+    android:orientation="horizontal" >
+
+    <org.droidparts.widget.ClearableEditText
+        android:id="@+id/keywords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:ellipsize="end"
+        android:hint="@string/input_personinfo"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textSize="21sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/memberSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_weight="3"
+        android:background="#ffffff"
+        android:src="@drawable/abs__ic_search_api_holo_light" />
+
+</LinearLayout>

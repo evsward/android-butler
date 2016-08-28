@@ -1,0 +1,250 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#E2E2E2"
+    android:columnCount="4"
+    android:orientation="horizontal"
+    android:rowCount="5" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_columnSpan="4"
+        android:background="@drawable/shape_blue_gradual_login" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:src="@drawable/big_avatar" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/employeeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="120dp"
+                    android:hint="@string/hint_show_employees_name"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/employeeRole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/hint_show_employees_privilege"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeAddMember"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/ic_add" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_addMember" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeSearchMember"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/ic_search" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_searchMember" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeTVManager"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/ic_screen" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_TVManage" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeMemEnter"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/icon_register" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_registMember" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeVIPEnter"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/icon_rebuy" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_regist_VIP_Member" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeInitNFCCard"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/icon_prize_set" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_initialize_NFC_card" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeEntranceCheck"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/icon_allow" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_check_ID" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeCompetitionList"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/ic_detail" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_match_list" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeCompetitionAdvancedManage"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/icon_addon" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_promotion_manage" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/privilegeTableResManage"
+        style="@style/mainui_privilege_style" >
+
+        <TableRow>
+
+            <ImageView
+                style="@style/mainui_button_style"
+                android:src="@drawable/icon_manager" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/mainui_button_text_style"
+                android:text="@string/MAINUI_table_manage" />
+        </TableRow>
+    </TableLayout>
+
+</GridLayout>

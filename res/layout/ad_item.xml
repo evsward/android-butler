@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RadioButton
+        android:id="@+id/adItemRadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:button="@null"
+        android:clickable="false"
+        android:drawableLeft="@android:drawable/btn_radio"
+        android:drawablePadding="20dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/adversts_example"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+</LinearLayout>

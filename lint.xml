@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ContentDescription" severity="ignore" />
+    <issue id="NestedWeights">
+        <ignore path="res/layout/tvscreen_one_match_info.xml" />
+    </issue>
+    <issue id="RtlHardcoded" severity="ignore" />
+    <issue id="UseSparseArrays">
+        <ignore path="src/com/evsward/bulter/adapter/SeatAdapter.java" />
+    </issue>
+    <issue id="UselessParent">
+        <ignore path="res/layout/tvscreen_one_match_info.xml" />
+    </issue>
+</lint>

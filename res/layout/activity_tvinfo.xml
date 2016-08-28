@@ -1,0 +1,146 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E2E2E2" >
+
+    <LinearLayout
+        android:id="@+id/firstRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/tvinfo_box_name"
+            android:textSize="21sp" />
+
+        <org.droidparts.widget.ClearableEditText
+            android:id="@+id/updateBoxName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="80dp"
+            android:layout_weight="2"
+            android:hint="@string/tvinfo_please_input_box_name"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sencondLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/firstRow"
+        android:layout_below="@id/firstRow"
+        android:layout_marginBottom="20dp"
+        android:text="@string/tvinfo_show_content"
+        android:textSize="21sp" />
+
+    <RelativeLayout
+        android:id="@+id/showContentLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/firstRow"
+        android:layout_below="@id/sencondLine"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/shape_corner_white_no_border"
+        android:padding="10dp" >
+
+        <RadioGroup
+            android:id="@+id/radioShowContentGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/screenBlank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:checked="true"
+                android:text="@string/dont_send"
+                android:textSize="21sp" />
+
+            <RadioButton
+                android:id="@+id/screenEntranceCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="@string/MAINUI_check_ID"
+                android:textSize="21sp" />
+            
+            <RadioButton
+                android:id="@+id/screenCompList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="@string/tvinfo_match_list"
+                android:textSize="21sp" />
+
+            <RadioButton
+                android:id="@+id/screenCompName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvinfo_match_name"
+                android:textSize="21sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/showContentflag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/radioShowContentGroup"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="170dp"
+            android:layout_toRightOf="@+id/radioShowContentGroup"
+            android:text="@string/tvinfo_different_show_content"
+            android:textSize="21sp" />
+
+        <Spinner
+            android:id="@+id/spinnerCompName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/radioShowContentGroup"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/radioShowContentGroup"
+            android:layout_marginBottom="30dp" />
+
+        <Spinner
+            android:id="@+id/spinnerScreenShow"
+            android:layout_toRightOf="@id/spinnerCompName"
+            android:layout_alignLeft="@id/showContentflag"
+            android:layout_alignTop="@id/spinnerCompName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radioShowContentGroup" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/firstRow"
+        android:layout_below="@id/showContentLine"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvinfo_show_language"
+            android:textSize="21sp" />
+
+        <Switch
+            android:id="@+id/switchLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:layout_marginLeft="40dp"
+            android:text="@string/Chinese"
+            android:textOff="@string/Chinese"
+            android:textOn="English"
+            android:textSize="21sp"
+            android:thumb="@drawable/custom_switch_inner_holo_light"
+            android:thumbTextPadding="50dp"
+            android:track="@drawable/custom_switch_track_holo_light" />
+    </LinearLayout>
+
+</RelativeLayout>
