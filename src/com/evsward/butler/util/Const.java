@@ -26,7 +26,7 @@ public class Const {
 	// http请求头
 	public static final String HTTP = "http://";
 	// 默认服务器访问端口
-	public static final String SERVER_PORT = ":7979";// :8080/HIserver
+	public static final String SERVER_PORT = ":7979/Hawaii-core-server";// :8080/HIserver
 	// 默认打印机访问端口
 	public static final int PRINT_PORT = 9100;
 	// 默认socket访问端口
@@ -100,7 +100,7 @@ public class Const {
 	// 模糊查找用户
 	public static final String METHOD_SEARCH_MEMBER_BY_INPUT = "/member/member/vagueFindMems.do?vagueParam=%s";
 	// 服务器图片地址
-	public static final String METHOD_DOWNLOAD_IMAGE_PATH = "/memimage/%s";
+	public static final String METHOD_DOWNLOAD_IMAGE_PATH = "/image/memimage/%s";
 	// 更新会员信息
 	public static final String METHOD_UPDATE_MEMBER_INFO = "/member/member/updateMember.do";
 	// 查询单个大屏幕设备信息
@@ -128,9 +128,9 @@ public class Const {
 	// 座位信息
 	public static final String METHOD_SEAT_INFO = "";
 	// 座位头像
-	public static final String METHOD_DOWNLOAD_SEAT_IMAGE = "/memimage/small/%s";
+	public static final String METHOD_DOWNLOAD_SEAT_IMAGE = "/image/memimage/small/%s";
 	// 广告
-	public static final String METHOD_DOWNLOAD_AD_IMAGE = "/advertisment/%s";
+	public static final String METHOD_DOWNLOAD_AD_IMAGE = "/image/advertisment/%s";
 	// 删除比赛
 	public static final String METHOD_DELETE_MATCH = "/competition/competition/delCompetition.do?empUuid=%s&compID=%d";
 	// 结束比赛

@@ -176,8 +176,8 @@ public class PrintUtil {
 	 * @param seatNO
 	 * @param gender
 	 */
-	public static void printSeatInfo(final String matchName, final String matchTime, final String playerName, final String cardNO, final int tableNO,
-			final int seatNO, final String gender) {
+	public static void printSeatInfo(final String matchName, final String matchTime, final String playerName,
+			final String cardNO, final int tableNO, final int seatNO, final String gender) {
 		new Thread(new Runnable() {
 			public void run() {
 				try {
@@ -246,8 +246,10 @@ public class PrintUtil {
 					}
 
 					disConnect();
-				} catch (IOException e) {
+				} catch (Exception e) {
 					LogUtil.se(TAG, e);
+				} finally {
+					disConnect();
 				}
 			}
 		}).start();
@@ -260,10 +262,12 @@ public class PrintUtil {
 	 * @param strTime
 	 * @param burstSeatInfoList
 	 */
-	private static void BurstTable(final String strMatchName, final String strTime, List<NewSeatInfo> burstSeatInfoList) {
+	private static void BurstTable(final String strMatchName, final String strTime,
+			List<NewSeatInfo> burstSeatInfoList) {
 		for (int i = 0; i < burstSeatInfoList.size(); i++) {
 			NewSeatInfo seatInfo = burstSeatInfoList.get(i);
-			LogUtil.i(TAG, "爆桌打印中：玩家【" + seatInfo.getMemName() + "】座位号【" + seatInfo.getSeatNO() + "】桌号【" + seatInfo.getTableNO() + "】");
+			LogUtil.i(TAG, "爆桌打印中：玩家【" + seatInfo.getMemName() + "】座位号【" + seatInfo.getSeatNO() + "】桌号【"
+					+ seatInfo.getTableNO() + "】");
 			try {
 				outstream.write(INIT_PRINTER); // 初始化打印机
 				outstream.write(CLEAR_FONT);
@@ -304,7 +308,8 @@ public class PrintUtil {
 				outwriter.flush();
 
 				outstream.write(FONT_B);// 字体加粗
-				outwriter.write("桌号：     " + seatInfo.getTableNO() + "                      座位号： " + seatInfo.getSeatNO() + "\r\n");
+				outwriter.write("桌号：     " + seatInfo.getTableNO() + "                      座位号： "
+						+ seatInfo.getSeatNO() + "\r\n");
 				outwriter.flush();
 
 				outstream.write(FONT_Un_B);
@@ -328,7 +333,7 @@ public class PrintUtil {
 				outwriter.flush();
 				outstream.flush();
 
-			} catch (IOException e) {
+			} catch (Exception e) {
 				LogUtil.se(TAG, e);
 			}
 		}
@@ -352,7 +357,8 @@ public class PrintUtil {
 	 * @param bMale
 	 *            男女
 	 */
-	public static void printBurstTable(final String strMatchName, final String strTime, final List<NewSeatInfo> burstSeatInfoList) {
+	public static void printBurstTable(final String strMatchName, final String strTime,
+			final List<NewSeatInfo> burstSeatInfoList) {
 		new Thread(new Runnable() {
 			public void run() {
 				connect();
@@ -380,8 +386,8 @@ public class PrintUtil {
 	 * @param bMale
 	 *            男女
 	 */
-	public static void printBalancePlayer(final String strMatchName, final String strTime, final String strName, final String strCardID, final int nTableID,
-			final int nChairID, final Boolean bMale) {
+	public static void printBalancePlayer(final String strMatchName, final String strTime, final String strName,
+			final String strCardID, final int nTableID, final int nChairID, final Boolean bMale) {
 		new Thread(new Runnable() {
 			public void run() {
 				try {
@@ -450,8 +456,10 @@ public class PrintUtil {
 					outwriter.flush();
 					outstream.flush();
 					disConnect();
-				} catch (IOException e) {
+				} catch (Exception e) {
 					LogUtil.se(TAG, e);
+				} finally {
+					disConnect();
 				}
 			}
 		}).start();
@@ -481,8 +489,9 @@ public class PrintUtil {
 	 * @param nPosition
 	 *            位置
 	 */
-	public static void printChips(final String strMatchName, final String strTime, final String strName, final String strCardID, final int nTableID,
-			final int nChairID, final Boolean bMale, final String strPlayerID, final int nPrize, final int nPosition) {
+	public static void printChips(final String strMatchName, final String strTime, final String strName,
+			final String strCardID, final int nTableID, final int nChairID, final Boolean bMale,
+			final String strPlayerID, final int nPrize, final int nPosition) {
 		new Thread(new Runnable() {
 			public void run() {
 				try {
@@ -558,8 +567,10 @@ public class PrintUtil {
 					outstream.flush();
 
 					disConnect();
-				} catch (IOException e) {
+				} catch (Exception e) {
 					LogUtil.se(TAG, e);
+				} finally {
+					disConnect();
 				}
 			}
 		}).start();

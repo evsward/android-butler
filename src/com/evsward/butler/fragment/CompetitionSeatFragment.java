@@ -70,7 +70,7 @@ public class CompetitionSeatFragment extends CompetitionManageBaseFragment {
 				}.getType());
 
 				if (compManTableInfoListObj.getRspCode() != Const.RspCode_Success) {
-					Toast.makeText(mContext, "比赛列表 socket错误：" + compManTableInfoListObj.getMsg(), Toast.LENGTH_SHORT).show();
+					Toast.makeText(mContext, "比赛列表显示失败：" + compManTableInfoListObj.getMsg(), Toast.LENGTH_SHORT).show();
 					return;
 				}
 
