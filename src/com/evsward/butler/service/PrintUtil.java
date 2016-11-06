@@ -57,58 +57,58 @@ public class PrintUtil {
 	 *            输出流
 	 */
 	private static void PrintImage(final int resID, OutputStream outstreamTmp, OutputStreamWriter outwriterTmp) {
-		if (outstreamTmp == null || outwriterTmp == null)
-			return;
-		try {
-			// 打印Image
-			Bitmap bmp = BitmapFactory.decodeResource(MyApplication.getContext().getResources(), resID);
-
-			int pixelColor;
-
-			// ESC * m nL nH 点阵图
-			byte[] escBmp = new byte[] { 0x1B, 0x2A, 0x00, 0x00, 0x00 };
-
-			escBmp[2] = (byte) 0x21;
-
-			// nL, nH
-			escBmp[3] = (byte) (bmp.getWidth() % 256);
-			escBmp[4] = (byte) (bmp.getWidth() / 256);
-
-			byte[] data = new byte[3];
-			data[0] = (byte) 0x00;
-			data[1] = (byte) 0x00;
-			data[2] = (byte) 0x00; // 重置参数
-
-			// 每行进行打印
-			for (int i = 0; i < bmp.getHeight() / 24 + 1; i++) {
-				outstreamTmp.write(escBmp);
-
-				for (int j = 0; j < bmp.getWidth(); j++) {
-					for (int k = 0; k < 24; k++) {
-						if (((i * 24) + k) < bmp.getHeight()) {
-							pixelColor = bmp.getPixel(j, (i * 24) + k);
-							if (pixelColor != -1) {
-								data[k / 8] += (byte) (128 >> (k % 8));
-							}
-						}
-					}
-
-					outstreamTmp.write(data);
-					outwriterTmp.flush();
-
-					// 重置参数
-					data[0] = (byte) 0x00;
-					data[1] = (byte) 0x00;
-					data[2] = (byte) 0x00;
-				}
-
-				// 换行
-				outstreamTmp.write(NEWLINE);
-				outwriterTmp.flush();
-			}
-		} catch (IOException e) {
-			LogUtil.se(TAG, e);
-		}
+//		if (outstreamTmp == null || outwriterTmp == null)
+//			return;
+//		try {
+//			// 打印Image
+//			Bitmap bmp = BitmapFactory.decodeResource(MyApplication.getContext().getResources(), resID);
+//
+//			int pixelColor;
+//
+//			// ESC * m nL nH 点阵图
+//			byte[] escBmp = new byte[] { 0x1B, 0x2A, 0x00, 0x00, 0x00 };
+//
+//			escBmp[2] = (byte) 0x21;
+//
+//			// nL, nH
+//			escBmp[3] = (byte) (bmp.getWidth() % 256);
+//			escBmp[4] = (byte) (bmp.getWidth() / 256);
+//
+//			byte[] data = new byte[3];
+//			data[0] = (byte) 0x00;
+//			data[1] = (byte) 0x00;
+//			data[2] = (byte) 0x00; // 重置参数
+//
+//			// 每行进行打印
+//			for (int i = 0; i < bmp.getHeight() / 24 + 1; i++) {
+//				outstreamTmp.write(escBmp);
+//
+//				for (int j = 0; j < bmp.getWidth(); j++) {
+//					for (int k = 0; k < 24; k++) {
+//						if (((i * 24) + k) < bmp.getHeight()) {
+//							pixelColor = bmp.getPixel(j, (i * 24) + k);
+//							if (pixelColor != -1) {
+//								data[k / 8] += (byte) (128 >> (k % 8));
+//							}
+//						}
+//					}
+//
+//					outstreamTmp.write(data);
+//					outwriterTmp.flush();
+//
+//					// 重置参数
+//					data[0] = (byte) 0x00;
+//					data[1] = (byte) 0x00;
+//					data[2] = (byte) 0x00;
+//				}
+//
+//				// 换行
+//				outstreamTmp.write(NEWLINE);
+//				outwriterTmp.flush();
+//			}
+//		} catch (IOException e) {
+//			LogUtil.se(TAG, e);
+//		}
 	}
 
 	/**
@@ -178,81 +178,81 @@ public class PrintUtil {
 	 */
 	public static void printSeatInfo(final String matchName, final String matchTime, final String playerName,
 			final String cardNO, final int tableNO, final int seatNO, final String gender) {
-		new Thread(new Runnable() {
-			public void run() {
-				try {
-					LogUtil.i(TAG, "【比赛座位信息】打印开始：卡号=" + cardNO + " 姓名=" + playerName + " 性别=" + gender);
-					connect();
-					for (int i = 0; i < 2; i++) {
-						outstream.write(INIT_PRINTER); // 初始化打印机
-						outstream.write(CLEAR_FONT);
-						outstream.write(SET_LINE_H); // 设置换行量
-						outwriter.flush();
-
-						// 打印Image
-						PrintImage(R.drawable.cpt_logo, outstream, outwriter);
-
-						// 打印Text
-						outstream.write(FONT_B);// 字体加粗
-						outwriter.write("比赛名称： " + matchName + "\r\n");
-						outstream.write(MOVE_PAPER_SMALL);
-						outwriter.flush();
-
-						outstream.write(FONT_Un_B);
-						outstream.write(CLEAR_FONT);
-						outwriter.flush();
-
-						outwriter.write(strSeparator);
-						outwriter.write("比赛时间： " + matchTime + "\r\n");
-						outwriter.write(strSeparator);
-
-						outwriter.write("姓名：     " + playerName + "(" + gender + ")" + "\r\n");
-
-						outstream.write(MOVE_PAPER_SMALL);
-						outwriter.flush();
-
-						outwriter.write("卡号：     " + cardNO + "\r\n");
-
-						outstream.write(MOVE_PAPER_SMALL);
-						outwriter.flush();
-
-						outwriter.write(strSeparator);
-						outwriter.flush();
-
-						outstream.write(FONT_B);// 字体加粗
-						outwriter.write("桌号：     " + tableNO + "                      座位号： " + seatNO + "\r\n");
-						outwriter.flush();
-
-						outstream.write(FONT_Un_B);
-						outstream.write(CLEAR_FONT);
-						outwriter.write(strSeparator);
-						outwriter.flush();
-
-						Time nowTime = new Time();
-						nowTime.setToNow();
-						outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
-						outwriter.flush();
-
-						// 下面指令为打印完成后自动走纸
-						outstream.write(PRINT_MOVE_PAPER);
-						// 走纸
-						outstream.write(MOVE_PAPER);
-						outstream.write(MOVE_PAPER);
-						// 切纸
-						outstream.write(CUT);
-
-						outwriter.flush();
-						outstream.flush();
-					}
-
-					disConnect();
-				} catch (Exception e) {
-					LogUtil.se(TAG, e);
-				} finally {
-					disConnect();
-				}
-			}
-		}).start();
+//		new Thread(new Runnable() {
+//			public void run() {
+//				try {
+//					LogUtil.i(TAG, "【比赛座位信息】打印开始：卡号=" + cardNO + " 姓名=" + playerName + " 性别=" + gender);
+//					connect();
+//					for (int i = 0; i < 2; i++) {
+//						outstream.write(INIT_PRINTER); // 初始化打印机
+//						outstream.write(CLEAR_FONT);
+//						outstream.write(SET_LINE_H); // 设置换行量
+//						outwriter.flush();
+//
+//						// 打印Image
+//						PrintImage(R.drawable.cpt_logo, outstream, outwriter);
+//
+//						// 打印Text
+//						outstream.write(FONT_B);// 字体加粗
+//						outwriter.write("比赛名称： " + matchName + "\r\n");
+//						outstream.write(MOVE_PAPER_SMALL);
+//						outwriter.flush();
+//
+//						outstream.write(FONT_Un_B);
+//						outstream.write(CLEAR_FONT);
+//						outwriter.flush();
+//
+//						outwriter.write(strSeparator);
+//						outwriter.write("比赛时间： " + matchTime + "\r\n");
+//						outwriter.write(strSeparator);
+//
+//						outwriter.write("姓名：     " + playerName + "(" + gender + ")" + "\r\n");
+//
+//						outstream.write(MOVE_PAPER_SMALL);
+//						outwriter.flush();
+//
+//						outwriter.write("卡号：     " + cardNO + "\r\n");
+//
+//						outstream.write(MOVE_PAPER_SMALL);
+//						outwriter.flush();
+//
+//						outwriter.write(strSeparator);
+//						outwriter.flush();
+//
+//						outstream.write(FONT_B);// 字体加粗
+//						outwriter.write("桌号：     " + tableNO + "                      座位号： " + seatNO + "\r\n");
+//						outwriter.flush();
+//
+//						outstream.write(FONT_Un_B);
+//						outstream.write(CLEAR_FONT);
+//						outwriter.write(strSeparator);
+//						outwriter.flush();
+//
+//						Time nowTime = new Time();
+//						nowTime.setToNow();
+//						outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
+//						outwriter.flush();
+//
+//						// 下面指令为打印完成后自动走纸
+//						outstream.write(PRINT_MOVE_PAPER);
+//						// 走纸
+//						outstream.write(MOVE_PAPER);
+//						outstream.write(MOVE_PAPER);
+//						// 切纸
+//						outstream.write(CUT);
+//
+//						outwriter.flush();
+//						outstream.flush();
+//					}
+//
+//					disConnect();
+//				} catch (Exception e) {
+//					LogUtil.se(TAG, e);
+//				} finally {
+//					disConnect();
+//				}
+//			}
+//		}).start();
 	}
 
 	/**
@@ -264,79 +264,79 @@ public class PrintUtil {
 	 */
 	private static void BurstTable(final String strMatchName, final String strTime,
 			List<NewSeatInfo> burstSeatInfoList) {
-		for (int i = 0; i < burstSeatInfoList.size(); i++) {
-			NewSeatInfo seatInfo = burstSeatInfoList.get(i);
-			LogUtil.i(TAG, "爆桌打印中：玩家【" + seatInfo.getMemName() + "】座位号【" + seatInfo.getSeatNO() + "】桌号【"
-					+ seatInfo.getTableNO() + "】");
-			try {
-				outstream.write(INIT_PRINTER); // 初始化打印机
-				outstream.write(CLEAR_FONT);
-				outstream.write(SET_LINE_H); // 设置换行量
-				outwriter.flush();
-
-				// 打印Image
-				PrintImage(R.drawable.cpt_logo, outstream, outwriter);
-
-				// 打印Text
-				outstream.write(FONT_B);// 字体加粗
-				outwriter.write("比赛名称： " + strMatchName + "----Breaking Tables" + "\r\n");
-				outstream.write(MOVE_PAPER_SMALL);
-				outwriter.flush();
-
-				outstream.write(FONT_Un_B);
-				outstream.write(CLEAR_FONT);
-				outwriter.flush();
-
-				outwriter.write(strSeparator);
-				outwriter.write("比赛时间： " + strTime + "\r\n");
-				outstream.write(MOVE_PAPER_SMALL);
-				outwriter.flush();
-
-				if (seatInfo.getMemSex() == 1) {
-					outwriter.write("姓名：     " + seatInfo.getMemName() + "(" + "M" + ")" + "\r\n");
-				} else {
-					outwriter.write("姓名：     " + seatInfo.getMemName() + "(" + "F" + ")" + "\r\n");
-				}
-				outstream.write(MOVE_PAPER_SMALL);
-				outwriter.flush();
-
-				outwriter.write("卡号：     " + seatInfo.getCardNO() + "\r\n");
-				outstream.write(MOVE_PAPER_SMALL);
-				outwriter.flush();
-
-				outwriter.write(strSeparator);
-				outwriter.flush();
-
-				outstream.write(FONT_B);// 字体加粗
-				outwriter.write("桌号：     " + seatInfo.getTableNO() + "                      座位号： "
-						+ seatInfo.getSeatNO() + "\r\n");
-				outwriter.flush();
-
-				outstream.write(FONT_Un_B);
-				outstream.write(CLEAR_FONT);
-				outwriter.write(strSeparator);
-				outwriter.flush();
-
-				Time nowTime = new Time();
-				nowTime.setToNow();
-				outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
-				outwriter.flush();
-
-				// 下面指令为打印完成后自动走纸
-				outstream.write(PRINT_MOVE_PAPER);
-				// 走纸
-				outstream.write(MOVE_PAPER);
-				outstream.write(MOVE_PAPER);
-				// 切纸
-				outstream.write(CUT);
-
-				outwriter.flush();
-				outstream.flush();
-
-			} catch (Exception e) {
-				LogUtil.se(TAG, e);
-			}
-		}
+//		for (int i = 0; i < burstSeatInfoList.size(); i++) {
+//			NewSeatInfo seatInfo = burstSeatInfoList.get(i);
+//			LogUtil.i(TAG, "爆桌打印中：玩家【" + seatInfo.getMemName() + "】座位号【" + seatInfo.getSeatNO() + "】桌号【"
+//					+ seatInfo.getTableNO() + "】");
+//			try {
+//				outstream.write(INIT_PRINTER); // 初始化打印机
+//				outstream.write(CLEAR_FONT);
+//				outstream.write(SET_LINE_H); // 设置换行量
+//				outwriter.flush();
+//
+//				// 打印Image
+//				PrintImage(R.drawable.cpt_logo, outstream, outwriter);
+//
+//				// 打印Text
+//				outstream.write(FONT_B);// 字体加粗
+//				outwriter.write("比赛名称： " + strMatchName + "----Breaking Tables" + "\r\n");
+//				outstream.write(MOVE_PAPER_SMALL);
+//				outwriter.flush();
+//
+//				outstream.write(FONT_Un_B);
+//				outstream.write(CLEAR_FONT);
+//				outwriter.flush();
+//
+//				outwriter.write(strSeparator);
+//				outwriter.write("比赛时间： " + strTime + "\r\n");
+//				outstream.write(MOVE_PAPER_SMALL);
+//				outwriter.flush();
+//
+//				if (seatInfo.getMemSex() == 1) {
+//					outwriter.write("姓名：     " + seatInfo.getMemName() + "(" + "M" + ")" + "\r\n");
+//				} else {
+//					outwriter.write("姓名：     " + seatInfo.getMemName() + "(" + "F" + ")" + "\r\n");
+//				}
+//				outstream.write(MOVE_PAPER_SMALL);
+//				outwriter.flush();
+//
+//				outwriter.write("卡号：     " + seatInfo.getCardNO() + "\r\n");
+//				outstream.write(MOVE_PAPER_SMALL);
+//				outwriter.flush();
+//
+//				outwriter.write(strSeparator);
+//				outwriter.flush();
+//
+//				outstream.write(FONT_B);// 字体加粗
+//				outwriter.write("桌号：     " + seatInfo.getTableNO() + "                      座位号： "
+//						+ seatInfo.getSeatNO() + "\r\n");
+//				outwriter.flush();
+//
+//				outstream.write(FONT_Un_B);
+//				outstream.write(CLEAR_FONT);
+//				outwriter.write(strSeparator);
+//				outwriter.flush();
+//
+//				Time nowTime = new Time();
+//				nowTime.setToNow();
+//				outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
+//				outwriter.flush();
+//
+//				// 下面指令为打印完成后自动走纸
+//				outstream.write(PRINT_MOVE_PAPER);
+//				// 走纸
+//				outstream.write(MOVE_PAPER);
+//				outstream.write(MOVE_PAPER);
+//				// 切纸
+//				outstream.write(CUT);
+//
+//				outwriter.flush();
+//				outstream.flush();
+//
+//			} catch (Exception e) {
+//				LogUtil.se(TAG, e);
+//			}
+//		}
 	}
 
 	/**
@@ -359,13 +359,13 @@ public class PrintUtil {
 	 */
 	public static void printBurstTable(final String strMatchName, final String strTime,
 			final List<NewSeatInfo> burstSeatInfoList) {
-		new Thread(new Runnable() {
-			public void run() {
-				connect();
-				BurstTable(strMatchName, strTime, burstSeatInfoList);
-				disConnect();
-			}
-		}).start();
+//		new Thread(new Runnable() {
+//			public void run() {
+//				connect();
+//				BurstTable(strMatchName, strTime, burstSeatInfoList);
+//				disConnect();
+//			}
+//		}).start();
 	}
 
 	/**
@@ -388,81 +388,81 @@ public class PrintUtil {
 	 */
 	public static void printBalancePlayer(final String strMatchName, final String strTime, final String strName,
 			final String strCardID, final int nTableID, final int nChairID, final Boolean bMale) {
-		new Thread(new Runnable() {
-			public void run() {
-				try {
-					connect();
-					outstream.write(INIT_PRINTER); // 初始化打印机
-					outstream.write(CLEAR_FONT);
-					outstream.write(SET_LINE_H); // 设置换行量
-					outwriter.flush();
-
-					// 打印Image
-					PrintImage(R.drawable.cpt_logo, outstream, outwriter); // cpt_logo
-
-					// 打印Text
-					outstream.write(FONT_B);// 字体加粗
-					outwriter.write("比赛名称： " + strMatchName + "----Balancing Tables" + "\r\n");
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					outstream.write(FONT_Un_B);
-					outstream.write(CLEAR_FONT);
-					outwriter.flush();
-
-					outwriter.write(strSeparator);
-					outwriter.write("比赛时间： " + strTime + "\r\n");
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					if (bMale == true) {
-						outwriter.write("姓名：     " + strName + "(" + "M" + ")" + "\r\n");
-					} else {
-						outwriter.write("姓名：     " + strName + "(" + "F" + ")" + "\r\n");
-					}
-
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					outwriter.write("卡号：     " + strCardID + "\r\n");
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					outwriter.write(strSeparator);
-					outwriter.flush();
-
-					outstream.write(FONT_B);// 字体加粗
-					outwriter.write("桌号：     " + nTableID + "                      座位号： " + nChairID + "\r\n");
-					outwriter.flush();
-
-					outstream.write(FONT_Un_B);
-					outstream.write(CLEAR_FONT);
-					outwriter.write(strSeparator);
-					outwriter.flush();
-
-					Time nowTime = new Time();
-					nowTime.setToNow();
-					outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
-					outwriter.flush();
-
-					// 下面指令为打印完成后自动走纸
-					outstream.write(PRINT_MOVE_PAPER);
-					// 走纸
-					outstream.write(MOVE_PAPER);
-					outstream.write(MOVE_PAPER);
-					// 切纸
-					outstream.write(CUT);
-
-					outwriter.flush();
-					outstream.flush();
-					disConnect();
-				} catch (Exception e) {
-					LogUtil.se(TAG, e);
-				} finally {
-					disConnect();
-				}
-			}
-		}).start();
+//		new Thread(new Runnable() {
+//			public void run() {
+//				try {
+//					connect();
+//					outstream.write(INIT_PRINTER); // 初始化打印机
+//					outstream.write(CLEAR_FONT);
+//					outstream.write(SET_LINE_H); // 设置换行量
+//					outwriter.flush();
+//
+//					// 打印Image
+//					PrintImage(R.drawable.cpt_logo, outstream, outwriter); // cpt_logo
+//
+//					// 打印Text
+//					outstream.write(FONT_B);// 字体加粗
+//					outwriter.write("比赛名称： " + strMatchName + "----Balancing Tables" + "\r\n");
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					outstream.write(FONT_Un_B);
+//					outstream.write(CLEAR_FONT);
+//					outwriter.flush();
+//
+//					outwriter.write(strSeparator);
+//					outwriter.write("比赛时间： " + strTime + "\r\n");
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					if (bMale == true) {
+//						outwriter.write("姓名：     " + strName + "(" + "M" + ")" + "\r\n");
+//					} else {
+//						outwriter.write("姓名：     " + strName + "(" + "F" + ")" + "\r\n");
+//					}
+//
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					outwriter.write("卡号：     " + strCardID + "\r\n");
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					outwriter.write(strSeparator);
+//					outwriter.flush();
+//
+//					outstream.write(FONT_B);// 字体加粗
+//					outwriter.write("桌号：     " + nTableID + "                      座位号： " + nChairID + "\r\n");
+//					outwriter.flush();
+//
+//					outstream.write(FONT_Un_B);
+//					outstream.write(CLEAR_FONT);
+//					outwriter.write(strSeparator);
+//					outwriter.flush();
+//
+//					Time nowTime = new Time();
+//					nowTime.setToNow();
+//					outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
+//					outwriter.flush();
+//
+//					// 下面指令为打印完成后自动走纸
+//					outstream.write(PRINT_MOVE_PAPER);
+//					// 走纸
+//					outstream.write(MOVE_PAPER);
+//					outstream.write(MOVE_PAPER);
+//					// 切纸
+//					outstream.write(CUT);
+//
+//					outwriter.flush();
+//					outstream.flush();
+//					disConnect();
+//				} catch (Exception e) {
+//					LogUtil.se(TAG, e);
+//				} finally {
+//					disConnect();
+//				}
+//			}
+//		}).start();
 	}
 
 	/**
@@ -492,88 +492,88 @@ public class PrintUtil {
 	public static void printChips(final String strMatchName, final String strTime, final String strName,
 			final String strCardID, final int nTableID, final int nChairID, final Boolean bMale,
 			final String strPlayerID, final int nPrize, final int nPosition) {
-		new Thread(new Runnable() {
-			public void run() {
-				try {
-					connect();
-					outstream.write(INIT_PRINTER); // 初始化打印机
-					outstream.write(CLEAR_FONT);
-					outstream.write(SET_LINE_H); // 设置换行量
-					outwriter.flush();
-
-					// 打印Image
-					PrintImage(R.drawable.cpt_logo, outstream, outwriter);
-
-					// 打印Text
-					outstream.write(FONT_B);// 字体加粗
-					outwriter.write("比赛名称： " + strMatchName + "\r\n");
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					outstream.write(FONT_Un_B);
-					outstream.write(CLEAR_FONT);
-					outwriter.flush();
-
-					outwriter.write(strSeparator);
-					outwriter.write("比赛时间： " + strTime + "\r\n");
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					if (bMale == true) {
-						outwriter.write("姓名：     " + strName + "(" + "M" + ")" + "\r\n");
-					} else {
-						outwriter.write("姓名：     " + strName + "(" + "F" + ")" + "\r\n");
-					}
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					outwriter.write("卡号：     " + strCardID + "\r\n");
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					outwriter.write("证件号：   " + strPlayerID + "\r\n");
-					outstream.write(MOVE_PAPER_SMALL);
-					outwriter.flush();
-
-					outwriter.write(strSeparator);
-					outwriter.flush();
-
-					outstream.write(FONT_B);// 字体加粗
-					String strTableID = formatNum(nTableID, 12);
-					String strPrize = formatNum(nPrize, 12);
-					outwriter.write("桌号： " + strTableID + "                座位号： " + nChairID + "\r\n");
-					outwriter.write("奖金： " + strPrize + "                名次：   " + nPosition + "\r\n");
-					outwriter.flush();
-
-					outstream.write(FONT_Un_B);
-					outstream.write(CLEAR_FONT);
-					outwriter.write(strSeparator);
-					outwriter.flush();
-
-					Time nowTime = new Time();
-					nowTime.setToNow();
-					outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
-					outwriter.flush();
-
-					// 下面指令为打印完成后自动走纸
-					outstream.write(PRINT_MOVE_PAPER);
-					// 走纸
-					outstream.write(MOVE_PAPER);
-					outstream.write(MOVE_PAPER);
-					// 切纸
-					outstream.write(CUT);
-
-					outwriter.flush();
-					outstream.flush();
-
-					disConnect();
-				} catch (Exception e) {
-					LogUtil.se(TAG, e);
-				} finally {
-					disConnect();
-				}
-			}
-		}).start();
+//		new Thread(new Runnable() {
+//			public void run() {
+//				try {
+//					connect();
+//					outstream.write(INIT_PRINTER); // 初始化打印机
+//					outstream.write(CLEAR_FONT);
+//					outstream.write(SET_LINE_H); // 设置换行量
+//					outwriter.flush();
+//
+//					// 打印Image
+//					PrintImage(R.drawable.cpt_logo, outstream, outwriter);
+//
+//					// 打印Text
+//					outstream.write(FONT_B);// 字体加粗
+//					outwriter.write("比赛名称： " + strMatchName + "\r\n");
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					outstream.write(FONT_Un_B);
+//					outstream.write(CLEAR_FONT);
+//					outwriter.flush();
+//
+//					outwriter.write(strSeparator);
+//					outwriter.write("比赛时间： " + strTime + "\r\n");
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					if (bMale == true) {
+//						outwriter.write("姓名：     " + strName + "(" + "M" + ")" + "\r\n");
+//					} else {
+//						outwriter.write("姓名：     " + strName + "(" + "F" + ")" + "\r\n");
+//					}
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					outwriter.write("卡号：     " + strCardID + "\r\n");
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					outwriter.write("证件号：   " + strPlayerID + "\r\n");
+//					outstream.write(MOVE_PAPER_SMALL);
+//					outwriter.flush();
+//
+//					outwriter.write(strSeparator);
+//					outwriter.flush();
+//
+//					outstream.write(FONT_B);// 字体加粗
+//					String strTableID = formatNum(nTableID, 12);
+//					String strPrize = formatNum(nPrize, 12);
+//					outwriter.write("桌号： " + strTableID + "                座位号： " + nChairID + "\r\n");
+//					outwriter.write("奖金： " + strPrize + "                名次：   " + nPosition + "\r\n");
+//					outwriter.flush();
+//
+//					outstream.write(FONT_Un_B);
+//					outstream.write(CLEAR_FONT);
+//					outwriter.write(strSeparator);
+//					outwriter.flush();
+//
+//					Time nowTime = new Time();
+//					nowTime.setToNow();
+//					outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
+//					outwriter.flush();
+//
+//					// 下面指令为打印完成后自动走纸
+//					outstream.write(PRINT_MOVE_PAPER);
+//					// 走纸
+//					outstream.write(MOVE_PAPER);
+//					outstream.write(MOVE_PAPER);
+//					// 切纸
+//					outstream.write(CUT);
+//
+//					outwriter.flush();
+//					outstream.flush();
+//
+//					disConnect();
+//				} catch (Exception e) {
+//					LogUtil.se(TAG, e);
+//				} finally {
+//					disConnect();
+//				}
+//			}
+//		}).start();
 	}
 
 	private static String formatNum(final int num, final int formatNum) {
