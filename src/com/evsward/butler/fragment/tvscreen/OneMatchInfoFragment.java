@@ -156,7 +156,7 @@ public class OneMatchInfoFragment extends TVBaseFragment {
 				reqADImageInfo(tvCompTimeInfo.getCompAdvertInfo().getPath(), TVAD);
 			} else {
 				TVAD.setImageBitmap(null);
-				TVAD.setBackgroundResource(R.drawable.tvadvertisement);
+				TVAD.setBackgroundResource(R.drawable.sptadpicture);
 			}
 			if (tvCompTimeInfo.getCompState() != 2 && tvCompTimeInfo.getCompState() != 4) {
 				Toast.makeText(mContext, "比赛未开始，暂无进程信息", Toast.LENGTH_SHORT).show();
