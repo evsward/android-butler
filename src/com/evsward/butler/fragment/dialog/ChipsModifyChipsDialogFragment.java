@@ -35,7 +35,7 @@ import com.evsward.butler.R;
 public class ChipsModifyChipsDialogFragment extends SherlockDialogFragment {
 	private CompetitionManageActivity competitionManageActivity;
 	private String TAG;
-	private TextView playerCardNO, playerName, playerMobileNO, warnMsgInfo;
+	private TextView playerCardNO, playerName, playerMobileNO, warnMsgInfo, playerSTNO;
 	private EditText modifiedChipsNum;
 	private int chipsModified;
 
@@ -68,20 +68,23 @@ public class ChipsModifyChipsDialogFragment extends SherlockDialogFragment {
 	@SuppressLint("InflateParams")
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle(mTitle).setCancelable(false).setPositiveButton("确定", null)
-				.setNegativeButton("取消", cancelClickListener);
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle(mTitle).setCancelable(false)
+				.setPositiveButton("确定", null).setNegativeButton("取消", cancelClickListener);
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		View view = inflater.inflate(R.layout.chips_modify_chips_dialog, null);
 		playerCardNO = (TextView) view.findViewById(R.id.playerCardNO);
 		playerName = (TextView) view.findViewById(R.id.playerName);
 		playerMobileNO = (TextView) view.findViewById(R.id.playerMobileNO);
+		playerSTNO = (TextView) view.findViewById(R.id.playerSTNO);
 		warnMsgInfo = (TextView) view.findViewById(R.id.warnMsgInfo);
 		modifiedChipsNum = (EditText) view.findViewById(R.id.modifiedChipsNum);
 		playerCardNO.setText(mPlayer.getCardNO());
 		playerName.setText(mPlayer.getMemName());
 		playerMobileNO.setText(mPlayer.getMemMobile());
+		playerSTNO.setText(mPlayer.getTableNO() + "/" + mPlayer.getSeatNO());
 		modifiedChipsNum.setText(String.valueOf(mPlayer.getChip()));
 		warnMsgInfo.setText(null);
+		playerSTNO.requestFocus();
 		builder.setView(view);
 		return builder.create();
 	}
@@ -100,9 +103,12 @@ public class ChipsModifyChipsDialogFragment extends SherlockDialogFragment {
 	@Override
 	public void onDismiss(DialogInterface dialog) {
 		super.onDismiss(dialog);
-		// 关闭键盘
-		InputMethodManager imm = (InputMethodManager) competitionManageActivity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-		imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+//		// 关闭键盘
+//		InputMethodManager imm = (InputMethodManager) competitionManageActivity
+//				.getSystemService(Activity.INPUT_METHOD_SERVICE);
+//		if (imm.isActive()) {
+//			imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+//		}
 	}
 
 	@Override
@@ -127,8 +133,8 @@ public class ChipsModifyChipsDialogFragment extends SherlockDialogFragment {
 	 */
 	private void httpPostUpdateChips(final int chipsModified) {
 		String modifyURL = SFBaseActivity.URL_SERVER_ADDRESS
-				+ String.format(Const.METHOD_MODIFY_PLAYER_CHIPS, SFBaseActivity.empUuid, competitionManageActivity.compID, mPlayer.getId(),
-						mPlayer.getMemID(), chipsModified);
+				+ String.format(Const.METHOD_MODIFY_PLAYER_CHIPS, SFBaseActivity.empUuid,
+						competitionManageActivity.compID, mPlayer.getId(), mPlayer.getMemID(), chipsModified);
 		HttpUtil.get(modifyURL, new JsonBaseHttpResponseHandler() {
 
 			@Override

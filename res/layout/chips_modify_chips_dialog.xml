@@ -74,12 +74,34 @@
         android:padding="10dp" >
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tableSeatNO"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/playerSTNO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="@string/_T_S_"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:padding="10dp" >
+
+        <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/chips_num"
             android:textSize="24sp" />
 
-        <org.droidparts.widget.ClearableEditText
+        <EditText
             android:id="@+id/modifiedChipsNum"
             android:layout_width="150dp"
             android:layout_height="wrap_content"

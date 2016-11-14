@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:imeOptions="actionDone"
-            android:inputType="number"
+            android:inputType="numberSigned"
             android:singleLine="true"
             android:textSize="24sp"
             android:textStyle="bold" />

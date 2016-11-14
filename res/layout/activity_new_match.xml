@@ -133,6 +133,7 @@
                 android:layout_weight="30"
                 android:hint="@string/addmatch_match_entry_fee"
                 android:inputType="number"
+                android:text="0"
                 android:maxLength="6" />
 
             <TextView
@@ -149,6 +150,7 @@
                 android:layout_weight="30"
                 android:hint="@string/addmatch_match_manage_fee"
                 android:inputType="number"
+                android:text="0"
                 android:maxLength="6" />
         </LinearLayout>
 
@@ -311,13 +313,13 @@
                 android:id="@+id/rbChongjinYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/allowed" />
 
             <RadioButton
                 android:id="@+id/rbChongjinNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="@string/not_allow" />
         </RadioGroup>
     </LinearLayout>
@@ -352,7 +354,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
-                android:checked="true"
                 android:text="@string/ten_table_model" />
 
             <RadioButton
@@ -360,6 +361,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
+                android:checked="true"
                 android:text="@string/nine_tables_model" />
 
             <RadioButton

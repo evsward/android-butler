@@ -1,12 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E2E2E2" >
+    android:background="#006cff" >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_tvone_deep_blue_gradual"
         android:padding="5dp" >
 
         <TextView
@@ -18,8 +17,8 @@
             android:layout_margin="30dp"
             android:hint="@string/empty_hint"
             android:textColor="@color/white"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textSize="80sp"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/tvCompInfoName"
@@ -29,8 +28,8 @@
             android:layout_centerHorizontal="true"
             android:text="@string/tv_check_entrance_compinfo"
             android:textColor="@color/white"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textSize="60sp"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/welocomemsg"
@@ -40,8 +39,8 @@
             android:layout_alignLeft="@id/tvCompInfoName"
             android:text="@string/tv_check_entrance_welcomeinfo"
             android:textColor="@color/white"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textSize="60sp"
+            android:textStyle="normal" />
     </RelativeLayout>
 
 </LinearLayout>

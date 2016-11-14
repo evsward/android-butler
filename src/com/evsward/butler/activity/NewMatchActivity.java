@@ -54,7 +54,7 @@ public class NewMatchActivity extends BaseActivity {
 
 	private static final int SHOW_DATAPICK = 0, DATE_DIALOG_ID = 1, SHOW_TIMEPICK = 2, TIME_DIALOG_ID = 3;
 	private EditText edNewMatchDate, edNewMatchTime, edMatchName, edMatchCost, edManageCost, edInitChip, edMangZhuLvl, edBaodiJiangjin;
-	private int nJiangliMobanManage = 0, nChongjinManage = 1, nTableManage = 10, nChipType = 1, nMangZhuMoban = 0;
+	private int nJiangliMobanManage = 0, nChongjinManage = 0, nTableManage = 9, nChipType = 1, nMangZhuMoban = 0;
 	private RadioGroup rgJiangliMobanManage, rgChongjinManage, rgTableManage, rgSeatManage, rgCompType;
 	private Button pickDate = null, pickTime = null;
 	private int mYear, mMonth, mDay, mHour, mMinute;
