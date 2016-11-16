@@ -100,7 +100,7 @@
         android:id="@+id/matchPlayersListInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_tvone_deep_blue_gradual" >
+        android:background="#006cff" >
     </ListView>
 
 </LinearLayout>

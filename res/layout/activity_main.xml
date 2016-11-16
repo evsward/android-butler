@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="#E2E2E2"
+    android:background="#ffffff"
     android:columnCount="4"
     android:orientation="horizontal"
     android:rowCount="5" >
@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_columnSpan="4"
-        android:background="@drawable/shape_blue_gradual_login" >
+        android:background="#006cff" >
 
         <ImageView
             android:layout_width="wrap_content"
