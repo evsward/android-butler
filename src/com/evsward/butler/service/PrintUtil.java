@@ -40,7 +40,7 @@ public class PrintUtil {
 	private static final byte[] MOVE_PAPER_SMALL = new byte[3];
 	private static byte[] FONT_T = new byte[3];
 
-	private static final String strSeparator = "------------------------------------------------\r\n";
+	private static final String strSeparator = "------------------------------------------\r\n";
 
 	private static Socket socket = null;
 	private static OutputStream outstream = null;
@@ -178,47 +178,46 @@ public class PrintUtil {
 	 */
 	public static void printSeatInfo(final String matchName, final String matchTime, final String playerName,
 			final String cardNO, final int tableNO, final int seatNO, final String gender) {
-//		new Thread(new Runnable() {
-//			public void run() {
-//				try {
-//					LogUtil.i(TAG, "【比赛座位信息】打印开始：卡号=" + cardNO + " 姓名=" + playerName + " 性别=" + gender);
-//					connect();
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					LogUtil.i(TAG, "【比赛座位信息】打印开始：卡号=" + cardNO + " 姓名=" + playerName + " 性别=" + gender);
+					connect();
 //					for (int i = 0; i < 2; i++) {
-//						outstream.write(INIT_PRINTER); // 初始化打印机
-//						outstream.write(CLEAR_FONT);
-//						outstream.write(SET_LINE_H); // 设置换行量
-//						outwriter.flush();
-//
-//						// 打印Image
+						outstream.write(INIT_PRINTER); // 初始化打印机
+						outstream.write(CLEAR_FONT);
+						outstream.write(SET_LINE_H); // 设置换行量
+						outwriter.flush();
+
+						// 打印Image
 //						PrintImage(R.drawable.cpt_logo, outstream, outwriter);
-//
-//						// 打印Text
-//						outstream.write(FONT_B);// 字体加粗
-//						outwriter.write("比赛名称： " + matchName + "\r\n");
-//						outstream.write(MOVE_PAPER_SMALL);
-//						outwriter.flush();
-//
-//						outstream.write(FONT_Un_B);
-//						outstream.write(CLEAR_FONT);
-//						outwriter.flush();
-//
-//						outwriter.write(strSeparator);
-//						outwriter.write("比赛时间： " + matchTime + "\r\n");
-//						outwriter.write(strSeparator);
-//
-//						outwriter.write("姓名：     " + playerName + "(" + gender + ")" + "\r\n");
-//
-//						outstream.write(MOVE_PAPER_SMALL);
-//						outwriter.flush();
-//
-//						outwriter.write("卡号：     " + cardNO + "\r\n");
-//
-//						outstream.write(MOVE_PAPER_SMALL);
-//						outwriter.flush();
-//
-//						outwriter.write(strSeparator);
-//						outwriter.flush();
-//
+
+						// 打印Text
+						outstream.write(FONT_B);// 字体加粗
+						outwriter.write("比赛名称： " + matchName + "\r\n");
+						outstream.write(MOVE_PAPER_SMALL);
+						outwriter.flush();
+
+						outstream.write(FONT_Un_B);
+						outstream.write(CLEAR_FONT);
+						outwriter.flush();
+
+						outwriter.write(strSeparator);
+						outwriter.write("比赛时间： " + matchTime + "\r\n");
+						outwriter.write(strSeparator);
+						outwriter.flush();
+
+						outwriter.write("姓名：     " + playerName + "(" + gender + ")" + "\r\n");
+						outstream.write(MOVE_PAPER_SMALL);
+						outwriter.flush();
+
+						outwriter.write("卡号：     " + cardNO + "\r\n");
+						outstream.write(MOVE_PAPER_SMALL);
+						outwriter.flush();
+
+						outwriter.write(strSeparator);
+						outwriter.flush();
+
 //						outstream.write(FONT_B);// 字体加粗
 //						outwriter.write("桌号：     " + tableNO + "                      座位号： " + seatNO + "\r\n");
 //						outwriter.flush();
@@ -227,32 +226,32 @@ public class PrintUtil {
 //						outstream.write(CLEAR_FONT);
 //						outwriter.write(strSeparator);
 //						outwriter.flush();
-//
-//						Time nowTime = new Time();
-//						nowTime.setToNow();
-//						outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
-//						outwriter.flush();
-//
-//						// 下面指令为打印完成后自动走纸
-//						outstream.write(PRINT_MOVE_PAPER);
-//						// 走纸
-//						outstream.write(MOVE_PAPER);
-//						outstream.write(MOVE_PAPER);
-//						// 切纸
-//						outstream.write(CUT);
-//
-//						outwriter.flush();
-//						outstream.flush();
+
+						Time nowTime = new Time();
+						nowTime.setToNow();
+						outwriter.write(nowTime.format("%Y-%m-%d %H:%M:%S") + "\r\n");
+						outwriter.flush();
+
+						// 下面指令为打印完成后自动走纸
+						outstream.write(PRINT_MOVE_PAPER);
+						// 走纸
+						outstream.write(MOVE_PAPER);
+						outstream.write(MOVE_PAPER);
+						// 切纸
+						outstream.write(CUT);
+
+						outwriter.flush();
+						outstream.flush();
 //					}
-//
-//					disConnect();
-//				} catch (Exception e) {
-//					LogUtil.se(TAG, e);
-//				} finally {
-//					disConnect();
-//				}
-//			}
-//		}).start();
+
+					disConnect();
+				} catch (Exception e) {
+					LogUtil.se(TAG, e);
+				} finally {
+					disConnect();
+				}
+			}
+		}).start();
 	}
 
 	/**
