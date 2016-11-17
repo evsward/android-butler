@@ -105,10 +105,10 @@
                 android:id="@+id/memberName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="8"
+                android:layout_weight="30"
                 android:ellipsize="end"
                 android:inputType="text"
-                android:maxLength="8"
+                android:maxLength="30"
                 android:singleLine="true"
                 android:textSize="21sp"
                 android:textStyle="bold" />
