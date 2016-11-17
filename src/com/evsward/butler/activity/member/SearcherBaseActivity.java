@@ -227,7 +227,7 @@ public abstract class SearcherBaseActivity extends RegisterBaseActivity {
 							askMatchInfo();
 						} else if (response.getInt("rspCode") == 231 && memID != 0 && NeedSuppyCard) {
 							// 1、有效卡 2、补卡 3、非报名UI
-							Toast.makeText(mContext, "正在补卡...", Toast.LENGTH_SHORT).show();
+							Toast.makeText(mContext, "正在补卡...", Toast.LENGTH_LONG).show();
 							getcardno("补卡");
 						} else {
 							initRegister();
