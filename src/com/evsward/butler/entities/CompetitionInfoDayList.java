@@ -32,6 +32,7 @@ public class CompetitionInfoDayList {
 			private int regFee;
 			private int serviceFee;
 			private int beginChip;
+			private int beforeChip;
 			private int curRank;
 			private int reEntry;
 			private Integer compID;
@@ -99,6 +100,14 @@ public class CompetitionInfoDayList {
 
 			public void setBeginChip(int beginChip) {
 				this.beginChip = beginChip;
+			}
+
+			public int getBeforeChip() {
+				return beforeChip;
+			}
+
+			public void setBeforeChip(int beforeChip) {
+				this.beforeChip = beforeChip;
 			}
 
 			public int getCurRank() {

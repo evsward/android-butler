@@ -42,6 +42,8 @@ public class ScreenCompInfo {
 	private String compStateDesc;
 	// 比赛初始筹码
 	private int beginChip;
+	// 比赛盲级前注
+	private int beforeChip;
 	// 比赛开始日期：yyyy-MM-dd
 	private String compStartDateStr;
 	// 比赛开始时间：hh:mm
@@ -104,6 +106,14 @@ public class ScreenCompInfo {
 
 	public void setBeginChip(int beginChip) {
 		this.beginChip = beginChip;
+	}
+
+	public int getBeforeChip() {
+		return beforeChip;
+	}
+
+	public void setBeforeChip(int beforeChip) {
+		this.beforeChip = beforeChip;
 	}
 
 	public String getCompStartDateStr() {

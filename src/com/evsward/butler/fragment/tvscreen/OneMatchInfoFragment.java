@@ -142,7 +142,13 @@ public class OneMatchInfoFragment extends TVBaseFragment {
 					tvOneCompStateShow.setText(R.string.tv_compinfo_comp_state_signstart);
 					break;
 				}
-
+				if(tvCompTimeInfo.getCurRound().getCurRank()==0&&tvCompTimeInfo.getCurRound().getCurBeforeChip()==Const.countdownBeforeChip){
+					tvCompForceScore.setText(Integer.toString(0));
+					tvOneCompStateShow.setText(R.string.tv_compinfo_comp_state_countdown);
+				}else{
+					tvCompForceScore.setText(Integer.toString(tvCompTimeInfo.getCurRound().getCurBeforeChip()));
+				}
+				
 				myCountDown = new MyCountDown(tvCompTimeInfo.getCurRound().getRestTime() * 1000, 1000);
 				myCountDown.start();
 			}
@@ -163,7 +169,6 @@ public class OneMatchInfoFragment extends TVBaseFragment {
 				return;
 			}
 			tvCompCurrentLevel.setText(NumberFormat.getInstance().format(tvCompTimeInfo.getCurRound().getCurRank()));
-			tvCompForceScore.setText(Integer.toString(tvCompTimeInfo.getCurRound().getCurBeforeChip()));
 			tvCompSmallBilndScore.setText(Integer.toString(tvCompTimeInfo.getCurRound().getCurSmallBlind()));
 			tvCompBigBilndScore.setText(Integer.toString(tvCompTimeInfo.getCurRound().getCurBigBlind()));
 			if (tvCompTimeInfo.getNextRound() != null) {

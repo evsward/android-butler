@@ -74,10 +74,26 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 					}.getType());
 					if (cprocess.getCompID() == compID) {
 						curRank = cprocess.getCurRank();
+						if(curRank==0&&cprocess.getBeforeChip()==Const.countdownBeforeChip){
+							frontStake.setText(String.valueOf(0));
+							upOneBlindLevel.setEnabled(false);
+							backOneBlindLevel.setEnabled(false);
+							pauseMatch.setEnabled(false);
+							startMatch.setEnabled(false);
+							changePeopleNum.setEnabled(false);
+							blindTimeSeekBar.setEnabled(false);
+						}else{
+							frontStake.setText(String.valueOf(cprocess.getBeforeChip()));
+							upOneBlindLevel.setEnabled(true);
+							backOneBlindLevel.setEnabled(true);
+							pauseMatch.setEnabled(true);
+							startMatch.setEnabled(true);
+							changePeopleNum.setEnabled(true);
+							blindTimeSeekBar.setEnabled(true);
+						}
 						currentBlindLevel.setText(String.valueOf(curRank) + (cprocess.getRoundType() == 0 ? "（休息）" : ""));
 						blindLevelCountDown.setText(CommonUtil.convertTime(cprocess.getRestTime() * 1000));
 						smallBigBlindLevel.setText(cprocess.getSmallBlind() + "/" + cprocess.getBigBlind());
-						frontStake.setText(String.valueOf(cprocess.getBeforeChip()));
 						totalPlayers.setText(cprocess.getTotalRegedPlayerEdit() + "/" + cprocess.getTotalRegedPlayer());
 						averageChips.setText(String.valueOf(cprocess.getAverChip()));
 						duration = cprocess.getInitedStepLen() * 1000;// 这里接收一个值初始化

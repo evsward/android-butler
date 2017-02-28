@@ -31,6 +31,7 @@
     <string name="tv_compinfo_prize_pos_welcome">Welcome to</string>
     <string name="tv_compinfo_comp_event_show">Event：</string>
     <string name="tv_compinfo_comp_state_pause">PAUSING</string>
+    <string name="tv_compinfo_comp_state_countdown">Countdowning</string>
     <string name="tv_compinfo_comp_state_rest">RESTING</string>
     <string name="tv_compinfo_comp_state_close">CLOSE</string>
     <string name="tv_compinfo_comp_state_signnotstart">SIGNING,STOP</string>

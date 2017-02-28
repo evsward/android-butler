@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.evsward.butler.entities.CompetitionInfoDayList.CompetitionInfoDay.CompetitionInfo;
+import com.evsward.butler.util.Const;
 import com.evsward.butler.R;
 
 public class CompetitionAdapter extends BaseAdapter {
@@ -67,7 +68,13 @@ public class CompetitionAdapter extends BaseAdapter {
 
 		viewHolder.tvMatchName.setText(competitionInfo.getCompName());
 		viewHolder.tvMatchTime.setText(competitionInfo.getTime());
-		viewHolder.tvMatchIsOpen.setText(competitionInfo.getCompStateShow());
+		if(competitionInfo.getCurRank()==0&&competitionInfo.getBeforeChip()==Const.countdownBeforeChip){
+			viewHolder.tvMatchChuShiChouMa.setText(String.valueOf(0));
+			viewHolder.tvMatchIsOpen.setText(R.string.tv_compinfo_comp_state_countdown);
+		}else{
+			viewHolder.tvMatchChuShiChouMa.setText(String.valueOf(competitionInfo.getBeginChip()));
+			viewHolder.tvMatchIsOpen.setText(competitionInfo.getCompStateShow());
+		}
 		String strReEntry = "否";
 		if (competitionInfo.getReEntry() == 1) {
 			strReEntry = "是";
@@ -75,7 +82,6 @@ public class CompetitionAdapter extends BaseAdapter {
 		viewHolder.tvMatchChongJin.setText(strReEntry);
 		viewHolder.tvMatchCanSaiFei.setText(String.valueOf(competitionInfo.getRegFee()));
 		viewHolder.tvMatchGuanLiFei.setText(String.valueOf(competitionInfo.getServiceFee()));
-		viewHolder.tvMatchChuShiChouMa.setText(String.valueOf(competitionInfo.getBeginChip()));
 		viewHolder.tvMatchCurMangZhulvl.setText(String.valueOf(competitionInfo.getCurRank()));
 
 		if (nSelectedMatchID == competitionInfo.getCompID()) {

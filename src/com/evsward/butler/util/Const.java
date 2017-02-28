@@ -17,6 +17,8 @@ public class Const {
 	private static final String VERSION = "1.2";
 	// 系统种类
 	public static final int HI = 1;
+	// 倒计时前注标识位
+	public static final int countdownBeforeChip = 11;
 	// 日期格式
 	public static final String DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
 	// 日期格式

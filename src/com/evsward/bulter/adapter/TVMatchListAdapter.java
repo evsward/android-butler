@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.evsward.butler.entities.Competition;
 import com.evsward.butler.entities.ScreenCompInfo;
+import com.evsward.butler.util.Const;
 import com.evsward.butler.R;
 
 public class TVMatchListAdapter extends BaseAdapter {
@@ -63,7 +64,6 @@ public class TVMatchListAdapter extends BaseAdapter {
 		viewHolder.tvMatchTime.setText(screenCompInfo.getCompStartTime());
 		viewHolder.tvCurBlindLvl.setText(Integer.toString(screenCompInfo.getCurRoundRank()));
 		viewHolder.tvPlayerNum.setText(Integer.toString(screenCompInfo.getTotalRegedPlayerCount()));
-		viewHolder.tvInitChips.setText(Integer.toString(screenCompInfo.getBeginChip()));
 		switch (screenCompInfo.getCompState()) {
 		case Competition.COMPSTATE.ENDSIGNNOTSTART:
 			viewHolder.tvMatchStateDesc.setText(R.string.tv_compinfo_comp_state_endsignnotstart);
@@ -80,6 +80,12 @@ public class TVMatchListAdapter extends BaseAdapter {
 		case Competition.COMPSTATE.SIGNSTART:
 			viewHolder.tvMatchStateDesc.setText(R.string.tv_compinfo_comp_state_signstart);
 			break;
+		}
+		if(screenCompInfo.getCurRoundRank()==0&&screenCompInfo.getBeforeChip()==Const.countdownBeforeChip){
+			viewHolder.tvInitChips.setText(Integer.toString(0));
+			viewHolder.tvMatchStateDesc.setText(R.string.tv_compinfo_comp_state_countdown);
+		}else{
+			viewHolder.tvInitChips.setText(Integer.toString(screenCompInfo.getBeginChip()));
 		}
 		return view;
 	}
