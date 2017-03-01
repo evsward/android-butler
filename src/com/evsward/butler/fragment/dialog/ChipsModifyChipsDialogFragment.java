@@ -9,9 +9,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +41,7 @@ public class ChipsModifyChipsDialogFragment extends SherlockDialogFragment {
 	private EditText modifiedChipsNum;
 	private int chipsModified;
 
+	private String empUuid;
 	private String mTitle;
 	private PlayerInfo mPlayer;
 	private static Context mContext = MyApplication.getContext();
@@ -47,6 +50,40 @@ public class ChipsModifyChipsDialogFragment extends SherlockDialogFragment {
 		@Override
 		public void onClick(DialogInterface dialog, int which) {
 			ChipsModifyChipsDialogFragment.this.dismiss();
+		}
+	};
+	
+	DialogInterface.OnClickListener outMemClickListener = new DialogInterface.OnClickListener() {
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+
+			AlertDialog.Builder builder = new Builder(getActivity());
+			builder.setMessage("是否确认淘汰（" + mPlayer.getTableNO() + "）号桌（" + mPlayer.getSeatNO() + "）号选手【" + mPlayer.getMemName() + "】？");
+			builder.setTitle("提示");
+			builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(final DialogInterface dialog, int i) {
+					HttpUtil.get(String.format(SFBaseActivity.URL_SERVER_ADDRESS + Const.METHOD_ELIMINATE_PLAYER, empUuid,
+							competitionManageActivity.compID, mPlayer.getTableNO(), mPlayer.getSeatNO(), mPlayer.getMemID()), new JsonBaseHttpResponseHandler() {
+						@Override
+						public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+							try {
+								if (response.getInt("rspCode") == Const.RspCode_Success) {
+									Toast.makeText(mContext, "淘汰选手成功", Toast.LENGTH_SHORT).show();
+									dialog.dismiss();
+								} else {
+									Toast.makeText(mContext, response.getString("msg"), Toast.LENGTH_SHORT).show();
+									LogUtil.e(TAG, response.getString("msg"));
+								}
+							} catch (JSONException e) {
+								LogUtil.e(TAG, "服务器通讯错误！");
+							}
+						}
+					});
+				}
+			});
+			builder.setNegativeButton("取消", cancelClickListener);
+			builder.create().show();
 		}
 	};
 
@@ -63,13 +100,15 @@ public class ChipsModifyChipsDialogFragment extends SherlockDialogFragment {
 		super.onCreate(savedInstanceState);
 		competitionManageActivity = (CompetitionManageActivity) getSherlockActivity();
 		TAG = "chips dialog";
+		SharedPreferences pref = competitionManageActivity.getSharedPreferences("data", SFBaseActivity.MODE_PRIVATE);
+		empUuid = pref.getString("empUuid", "");
 	}
 
 	@SuppressLint("InflateParams")
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle(mTitle).setCancelable(false)
-				.setPositiveButton("确定", null).setNegativeButton("取消", cancelClickListener);
+				.setPositiveButton("确定", null).setNeutralButton("淘汰", outMemClickListener).setNegativeButton("取消", cancelClickListener);
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		View view = inflater.inflate(R.layout.chips_modify_chips_dialog, null);
 		playerCardNO = (TextView) view.findViewById(R.id.playerCardNO);

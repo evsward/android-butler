@@ -146,7 +146,7 @@ public class Const {
 	// 平衡选手
 	public static final String METHOD_BALANCE_PLAYER = "/compManage/seatManage/balanceCompTable.do?empUuid=%s&compID=%d&cmID=%d&memID=%d&tableNO=%d&seatNO=%d";
 	// 淘汰选手
-	public static final String METHOD_ELIMINATE_PLAYER = "/compManage/seatManage/outMember.do?empUuid=%s&compID=%d&cmID=%d&memID=%d";
+	public static final String METHOD_ELIMINATE_PLAYER = "/compManage/seatManage/outMember.do?empUuid=%s&compID=%d&tableNO=%d&seatNO=%d&memID=%d";
 	// 释放牌桌
 	public static final String METHOD_RELEASE_TABLE = "/compManage/seatManage/releaseCompTable.do?empUuid=%s&compID=%d&tableNO=%d";
 	// 爆桌
