@@ -20,12 +20,14 @@ public class CompetitionManageBaseFragment extends SherlockFragment {
 	public static String TAG, URL_SERVER_ADDRESS, printIP, serverIP, empUuid;
 	public static Context mContext;
 	public static int compID;
+	public static String strCompName;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		competitionManageActivity = (CompetitionManageActivity) getSherlockActivity();
 		compID = competitionManageActivity.compID;
+		strCompName = competitionManageActivity.strCompName;
 		URL_SERVER_ADDRESS = SFBaseActivity.URL_SERVER_ADDRESS;
 		empUuid = SFBaseActivity.empUuid;
 		serverIP = SFBaseActivity.serverIP;

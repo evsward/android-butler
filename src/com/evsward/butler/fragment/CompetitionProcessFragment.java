@@ -74,23 +74,6 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 					}.getType());
 					if (cprocess.getCompID() == compID) {
 						curRank = cprocess.getCurRank();
-						if(curRank==0&&cprocess.getBeforeChip()==Const.countdownBeforeChip){
-							frontStake.setText(String.valueOf(0));
-							upOneBlindLevel.setEnabled(false);
-							backOneBlindLevel.setEnabled(false);
-							pauseMatch.setEnabled(false);
-							startMatch.setEnabled(false);
-							changePeopleNum.setEnabled(false);
-							blindTimeSeekBar.setEnabled(false);
-						}else{
-							frontStake.setText(String.valueOf(cprocess.getBeforeChip()));
-							upOneBlindLevel.setEnabled(true);
-							backOneBlindLevel.setEnabled(true);
-							pauseMatch.setEnabled(true);
-							startMatch.setEnabled(true);
-							changePeopleNum.setEnabled(true);
-							blindTimeSeekBar.setEnabled(true);
-						}
 						currentBlindLevel.setText(String.valueOf(curRank) + (cprocess.getRoundType() == 0 ? "（休息）" : ""));
 						blindLevelCountDown.setText(CommonUtil.convertTime(cprocess.getRestTime() * 1000));
 						smallBigBlindLevel.setText(cprocess.getSmallBlind() + "/" + cprocess.getBigBlind());
@@ -104,11 +87,6 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 						myCountDown = new MyCountDown(cprocess.getRestTime() * 1000, 1000);
 						myCountDown.start();
 
-						if (cprocess.getCompPause() == 2) {
-							compPauseOps();
-						} else {
-							compStartOps();
-						}
 						blindTimeSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 							int beforeTouch = 0;
 
@@ -133,6 +111,22 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 								blindLevelCountDown.setText(CommonUtil.convertTime((long) ((double) duration * (1 - (double) progresValue / 100D))));
 							}
 						});
+						if(curRank==0&&cprocess.getBeforeChip()==Const.countdownBeforeChip){
+							frontStake.setText(String.valueOf(0));
+							upOneBlindLevel.setEnabled(false);
+							backOneBlindLevel.setEnabled(false);
+							pauseMatch.setEnabled(false);
+							startMatch.setEnabled(false);
+							changePeopleNum.setEnabled(false);
+							blindTimeSeekBar.setEnabled(false);
+						}else{
+							if (cprocess.getCompPause() == 2) {
+								compPauseOps();
+							} else {
+								compStartOps();
+							}
+							frontStake.setText(String.valueOf(cprocess.getBeforeChip()));
+						}
 					}
 				} catch (JSONException e) {
 					LogUtil.e(TAG, "服务器通讯错误！");
@@ -234,10 +228,11 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 		blindTimeSeekBar.setEnabled(true);
 		upOneBlindLevel.setEnabled(true);
 		backOneBlindLevel.setEnabled(true);
+		blindTimeSeekBar.setEnabled(true);
 		pauseMatch.setVisibility(View.VISIBLE);
 		startMatch.setVisibility(View.GONE);
-		LogUtil.i(TAG, "开始比赛:id=" + compID);
-		Toast.makeText(CompetitionProcessFragment.this.getActivity(), "比赛" + compID + "：进行中...", Toast.LENGTH_SHORT).show();
+//		LogUtil.i(TAG, "开始比赛：" + strCompName);
+//		Toast.makeText(CompetitionProcessFragment.this.getActivity(), "比赛[" + strCompName + "]：进行中...", Toast.LENGTH_SHORT).show();
 	}
 
 	private void compPauseOps() {
@@ -248,10 +243,11 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 		blindTimeSeekBar.setEnabled(false);
 		upOneBlindLevel.setEnabled(false);
 		backOneBlindLevel.setEnabled(false);
+		blindTimeSeekBar.setEnabled(false);
 		startMatch.setVisibility(View.VISIBLE);
 		pauseMatch.setVisibility(View.GONE);
-		LogUtil.i(TAG, "比赛暂停：id=" + compID);
-		Toast.makeText(CompetitionProcessFragment.this.getActivity(), "比赛" + compID + "：暂停-", Toast.LENGTH_SHORT).show();
+		LogUtil.i(TAG, "比赛暂停：" + strCompName);
+		Toast.makeText(CompetitionProcessFragment.this.getActivity(), "比赛[" + strCompName + "]：暂停-", Toast.LENGTH_SHORT).show();
 	}
 
 	public class MyCountDown extends CountDownTimer {
@@ -317,8 +313,8 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 						try {
 							if (jsonobject.getInt("rspCode") == Const.RspCode_Success) {
 								progressDialog.dismiss();
-								Toast.makeText(mContext, "比赛ID：" + compID + "----进一级成功----", Toast.LENGTH_SHORT).show();
-								LogUtil.i(TAG, "比赛ID：" + compID + "----进一级成功----");
+								Toast.makeText(mContext, "比赛：[" + strCompName + "]----进一级成功----", Toast.LENGTH_SHORT).show();
+								LogUtil.i(TAG, "比赛：[" + strCompName + "]----进一级成功----");
 							}
 						} catch (JSONException e) {
 							LogUtil.e(TAG, "服务器通讯错误！");
@@ -330,6 +326,11 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 
 	// 发送http请求，退一级
 	private void goBack(int curRank) {
+		if(curRank<=1){
+			Toast.makeText(mContext, "比赛：[" + strCompName + "]----当前已经是第一级，无法退一级----", Toast.LENGTH_SHORT).show();
+			LogUtil.i(TAG, "比赛：[" + strCompName + "]----当前已经是第一级，无法退一级----");
+			return;
+		}
 		// progress dialog
 		final ProgressDialog progressDialog = new ProgressDialog(competitionManageActivity);
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -344,8 +345,8 @@ public class CompetitionProcessFragment extends CompetitionManageBaseFragment im
 						try {
 							if (jsonobject.getInt("rspCode") == Const.RspCode_Success) {
 								progressDialog.dismiss();
-								Toast.makeText(mContext, "比赛ID：" + compID + "----退一级成功----", Toast.LENGTH_SHORT).show();
-								LogUtil.i(TAG, "比赛ID：" + compID + "----退一级成功----");
+								Toast.makeText(mContext, "比赛：[" + strCompName + "]----退一级成功----", Toast.LENGTH_SHORT).show();
+								LogUtil.i(TAG, "比赛：[" + strCompName + "]----退一级成功----");
 							}
 						} catch (JSONException e) {
 							LogUtil.e(TAG, "服务器通讯错误！");

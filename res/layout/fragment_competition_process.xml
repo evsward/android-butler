@@ -171,7 +171,6 @@
         android:layout_alignTop="@id/thirdUI"
         android:layout_marginLeft="60dp"
         android:layout_toRightOf="@id/thirdUI"
-        android:enabled="false"
         android:text="@string/fragment_comp_process_upOneBlindLevel" />
 
     <Button
@@ -180,7 +179,6 @@
         android:layout_alignTop="@id/upOneBlindLevel"
         android:layout_marginLeft="50dp"
         android:layout_toRightOf="@id/upOneBlindLevel"
-        android:enabled="false"
         android:text="@string/fragment_comp_process_backOneBlindLevel" />
 
     <LinearLayout
@@ -194,7 +192,6 @@
             android:id="@+id/pauseMatch"
             style="@style/customButton"
             android:layout_marginTop="40dp"
-            android:enabled="false"
             android:text="@string/fragment_comp_process_pauseComp" />
 
         <Button
@@ -202,7 +199,6 @@
             style="@style/customButton"
             android:layout_marginTop="40dp"
             android:text="@string/fragment_comp_process_startComp"
-            android:enabled="false"
             android:visibility="invisible" />
     </LinearLayout>
 
@@ -223,7 +219,6 @@
         android:layout_alignLeft="@id/firstUI"
         android:layout_below="@+id/fourthUI"
         android:layout_marginTop="10dp"
-        android:enabled="false"
         android:progressDrawable="@drawable/red_scrubber_progress"
         android:thumb="@drawable/thumb_image" />
 
